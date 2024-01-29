@@ -17,19 +17,19 @@ import java.util.List;
 public class CreateYourMonsterPage {
     private WebDriver driver;
 
-    @FindBy(xpath = "//section[@data-testid='monsters-list-section']/div[@data-testid='monster-1']")
+    @FindBy(xpath = "//div[@data-testid='monster-1']")
     private WebElement unicornMonster;
 
-    @FindBy(xpath = "//section[@data-testid='monsters-list-section']/div[@data-testid='monster-2']")
+    @FindBy(xpath = "//div[@data-testid='monster-2']")
     private WebElement sharkMonster;
 
-    @FindBy(xpath = "//section[@data-testid='monsters-list-section']/div[@data-testid='monster-3']")
+    @FindBy(xpath = "//div[@data-testid='monster-3']")
     private WebElement dragonMonster;
 
-    @FindBy(xpath = "//section[@data-testid='monsters-list-section']/div[@data-testid='monster-4']")
+    @FindBy(xpath = "//div[@data-testid='monster-4']")
     private WebElement bearMonster;
 
-    @FindBy(xpath = "//section[@data-testid='monsters-list-section']/div[@data-testid='monster-5']")
+    @FindBy(xpath = "//div[@data-testid='monster-5']")
     private WebElement snakeMonster;
 
     @FindBy(xpath = "//input[@name='name']")
@@ -70,8 +70,6 @@ public class CreateYourMonsterPage {
     private String cardSpeedXpath;
     private String cardDeleteButton;
 
-
-
     public CreateYourMonsterPage(WebDriver driver){
         this.driver=driver;
         PageFactory.initElements(driver, this);
@@ -92,6 +90,12 @@ public class CreateYourMonsterPage {
     public void clickOnSnakeMonster(){
         snakeMonster.click();
     }
+
+    /**
+     * This methods gets the name of the monster and located and
+     * looks for corresponding method to invoke using Java reflexion.
+     * @param monsterName the nome of the monster to be selected.
+     */
     public void selectMonster(String monsterName){
         String methodName="clickOn"+monsterName+"Monster";
         Method[] classMethods = this.getClass().getDeclaredMethods();
@@ -177,10 +181,16 @@ public class CreateYourMonsterPage {
         driver.findElement(By.xpath(cardDeleteButton)).click();
     }
 
+    /**
+     * This method returns the last monsters that was added.
+     */
     public Monster getAddedMonster(){
         return getMonstersList().get(getMonstersList().size()-1);
     }
 
+    /**
+     * This method returns the list of all the monsters.
+     */
     public List<Monster> getMonstersList(){
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(2000));
         wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath(monsterCardsXpath)));
@@ -205,6 +215,9 @@ public class CreateYourMonsterPage {
         return monsterList;
     }
 
+    /**
+     * This method gets the number of monsters and deletes them one by one.
+     */
     public void deleteAllMonsters(){
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(2000));
         wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath(monsterCardsXpath)));
@@ -213,6 +226,7 @@ public class CreateYourMonsterPage {
             clickOnDeleteButtonByIndex(1);
         }
     }
+
 
     public String getDynamicTitle(){
         return dynamicTitle.getText();
@@ -226,6 +240,10 @@ public class CreateYourMonsterPage {
         return enterValidNumberLabel.isDisplayed();
     }
 
+    /**
+     * This method creates the monster passed as a parameter.
+     * @param monster monster to be created.
+     */
     public void createMonster(Monster monster){
         selectMonster(monster.getMonsterImageName());
         typeName(monster.getName());
