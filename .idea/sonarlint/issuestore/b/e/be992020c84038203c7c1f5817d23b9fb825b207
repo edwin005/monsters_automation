@@ -1,0 +1,23 @@
+
+‚
+java:S1192Œ"kDefine a constant instead of duplicating this literal "//div[@data-testid='cards-container']/div[" 9 times.(ğÙü
+d
+java:S1192¡"NDefine a constant instead of duplicating this literal "aria-valuenow" 4 times.(¬ÊéD
+n	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(š¢òC
+t
+java:S1450D"^Remove the "cardAttackXpath" field and declare it as a local variable in the relevant methods.(±ˆôâ
+z
+java:S1450E"_Remove the "cardDefenseXpath" field and declare it as a local variable in the relevant methods.(šÉ–Óıÿÿÿÿ
+z
+java:S1450G"_Remove the "cardDeleteButton" field and declare it as a local variable in the relevant methods.(¯à€ÿÿÿÿÿ
+u
+java:S1450C"ZRemove the "cardHpXpath" field and declare it as a local variable in the relevant methods.(ŞŒøÿÿÿÿ
+w
+java:S1450A"\Remove the "cardIconXpath" field and declare it as a local variable in the relevant methods.(¸šî şÿÿÿÿ
+y
+java:S1450B"cRemove the "cardMonsterNameXpath" field and declare it as a local variable in the relevant methods.(„¢·²
+x
+java:S1450F"]Remove the "cardSpeedXpath" field and declare it as a local variable in the relevant methods.(á†€şÿÿÿÿ
+B
+java:S3011i",This accessibility update should be removed.(Ó«§¯
+S	java:S106o"9Replace this use of System.out or System.err by a logger.(©şêÜúÿÿÿÿ
